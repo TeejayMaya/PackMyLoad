@@ -1,4 +1,5 @@
 import Styled from "styled-components";
+import Check from "assets/img/check.svg"
 
 export const Illustration = Styled.div`
     height: 648px;
@@ -39,5 +40,51 @@ export const FormContainer = Styled.div`
         margin: 10px auto 36px auto;
         width: 449px;
         line-height: 1.3;
+    }
+`;
+
+export const RadioContainer = Styled.div`
+    display: flex;
+    justify-content: center;
+    & > *{
+        margin: 0 25px;
+    }
+    input[type=checkbox]:not(old):checked + label:before, 
+    input[type=radio]:not(old):checked + label:before, 
+    input[type=checkbox]:not(old):checked + span + label:before, 
+    input[type=radio]:not(old):checked + span + label:before {
+        content: url(${Check});
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-size: 24px;
+        font-size: 1.5rem;
+        color: #acd373;
+    }
+    .radio{
+        display: flex;
+        flex-direction: column;
+        input[type="radio" i]{
+            visibility: hidden;
+        }
+        label{
+            position: relative;
+            width: 160px;
+            height: 160px;
+            background: #FFFFFF 0% 0% no-repeat padding-box;
+            box-shadow: 0px 3px 6px #272D3B33;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            h3{
+                font-size: 26px;
+                font-weight: 500;
+                color: #272D3B;
+                margin: 0;
+                margin-top: 12px;
+            }
+        }
     }
 `;

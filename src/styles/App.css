@@ -7,3 +7,35 @@
   align-items: center;
   justify-content: center;
 }
+
+.pagination{
+  list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    padding-inline-start: 0;
+}
+
+.previous{
+  display: none;
+}
+
+.pages{
+  border: 2px solid #EEEEEE;
+  opacity: 1;
+  padding: 12px 17px;
+  border-radius: 100%;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.pages:focus {
+  outline: none;
+}
+
+
+.activePage{
+  border: 2px solid #2E5F9E;
+  color: #2E5F9E;
+  opacity: 1;
+  font-family: "Montserrat";
+}
