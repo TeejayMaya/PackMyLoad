@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled, { css } from "styled-components";
 
 export default function Card(props) {
-  const { tabs, noBodyPadding, itemMargin, fontSize, activeColor, noTabPadding, distribution } = props;
+  const { tabs, noBodyPadding, itemMargin, fontSize, activeColor, noTabPadding, distribution, distributionMobile } = props;
   const [activeTabIndex, setActiveTabIndex] = useState(0);
 
   return (
@@ -27,7 +27,7 @@ export default function Card(props) {
           ))}
         </CardBlock.Tabs>
       )}
-      <CardBlock.Body noPadding={noBodyPadding} itemMargin={itemMargin} distribution={distribution}>
+      <CardBlock.Body noPadding={noBodyPadding} itemMargin={itemMargin} distribution={distribution} distributionMobile={distributionMobile}>
         {tabs && tabs.length > 0
           ? tabs[activeTabIndex].content
           : props.children}
@@ -286,9 +286,14 @@ CardBlock.Body = styled.div`
     ${(props) =>
     props.distribution &&
     css`
-    flex-direction: ${props.distribution}
+    flex-direction: ${props.distribution};
         `}
   @media only screen and (max-width: 720px) {
+    ${(props) =>
+    props.distributionMobile &&
+    css`
+    flex-direction: ${props.distributionMobile};
+        `}
     padding: 20px;
   }
 `;

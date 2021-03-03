@@ -18,6 +18,23 @@ export const Illustration = Styled.div`
   svg {
     margin: 0 auto;
   }
+  @media only screen and (max-width: 720px) {
+    width: 100vw;
+    height: auto;
+    display: none;
+    svg {
+        width: inherit;
+        height: 160px;
+      }
+      .logo{
+        width: initial;
+        /* margin-bottom: 35px !important;
+        height: initial; */
+    }
+      img {
+        width: inherit;
+      }
+    }
 `;
 
 export const FormContainer = Styled.div`
@@ -41,13 +58,25 @@ export const FormContainer = Styled.div`
         width: 449px;
         line-height: 1.3;
     }
+    @media only screen and (max-width: 720px) {
+    width: 100vw;
+    height: 100vh;
+    padding: 78px 28px 41.5px 28px;
+    h4{
+        width: auto !important;
+    }
+    h1{
+        width: auto !important;
+    }
+    }
 `;
 
 export const RadioContainer = Styled.div`
     display: flex;
     justify-content: center;
+    flex-wrap: ${(props) => props.wrap ? "wrap" : "nowrap"};
     & > *{
-        margin: 0 25px;
+        margin: 10px 14px;
     }
     input[type=checkbox]:not(old):checked + label:before, 
     input[type=radio]:not(old):checked + label:before, 
@@ -60,6 +89,44 @@ export const RadioContainer = Styled.div`
         font-size: 24px;
         font-size: 1.5rem;
         color: #acd373;
+    }
+    .checkbox {
+        display: flex;
+        input[type="checkbox" i]{
+            visibility: hidden;
+        }
+        label{
+            position: relative;
+            width: 203px;
+            height: 73px;
+            background: rgba(77, 183, 254, 0.1) 0% 0% no-repeat padding-box;
+            /* box-shadow: 0px 3px 6px #272D3B33; */
+            border-radius: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+            padding: 0 61px 0 21px;
+            h3{
+                font-size: 14px;
+                font-weight: 700;
+                color: #305F72;
+                margin: 0;
+                text-align: initial;
+            }
+            svg{
+                margin-right: 18px;
+            }
+            @media only screen and (max-width: 720px) {
+                h3{
+                    font-size: 10px;
+                }
+                width: 125px;
+                height: 63px;
+                padding: 0 16px 0 16px;
+            }
+        }
     }
     .radio{
         display: flex;

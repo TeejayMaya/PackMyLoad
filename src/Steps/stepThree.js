@@ -1,13 +1,16 @@
 import Logo from "assets/img/logo.png";
-import Card from "components/Card"
-import { Illustration, FormContainer } from "styles/style"
+import { Illustration, FormContainer, RadioContainer } from "styles/style"
 import IllustrationImage from "assets/img/services-info.png"
-import Button from "styles/ButtonBlock";
-import Paginate from 'react-paginate';
+import { ReactComponent as TruckIcon } from "assets/img/truck-icon.svg";
+import { ReactComponent as HouseIcon } from "assets/img/house-icon.svg";
+import { ReactComponent as WarehouseIcon } from "assets/img/warehouse-icon.svg"
+import { ReactComponent as BoxIcon } from "assets/img/box-icon.svg"
+import { ReactComponent as CleaningIcon } from "assets/img/cleaning-icon.svg"
+import { ReactComponent as MenIcon } from "assets/img/men-icon.svg"
 
 const StepThree = (props) => {
     return (
-        <Card distribution={"row"} noBodyPadding>
+        <>
             <Illustration>
                 <img className="logo" src={Logo} alt={"PackMyLoad Logo"} style={{ marginBottom: "90px" }} />
                 <img src={IllustrationImage} alt="services" />
@@ -15,37 +18,107 @@ const StepThree = (props) => {
             <FormContainer>
                 <h1>HOW CAN WE HELP YOU?</h1>
                 <h4>We offer a variety of services give the best experience possible. Which of these services are you asking about today?</h4>
-                {/* <RadioContainer>
-                    <div className="radio">
-                        <input type="radio" id="male" name="gender" value="male" />
-                        <label for="male">
-                            <img src={TelephonIcon} alt="Telephone Icon" />
-                            <h3>Phone</h3>
+                <RadioContainer wrap>
+                    <div className="checkbox">
+                        <input
+                            type="checkbox"
+                            id="move"
+                            name="move"
+                            value="move"
+                            onChange={(e) => {
+                                props.formData.move = e.target.checked
+                                props.setFormData({ ...props.formData })
+                            }}
+                        />
+                        <label htmlFor="move">
+                            <TruckIcon />
+                            <h3>Help Me Move</h3>
                         </label>
                     </div>
-                    <div className="radio">
-                        <input type="radio" id="female" name="gender" value="female" />
-                        <label for="female">
-                            <img src={EmailIcon} alt="Email Icon" />
-                            <h3>Email</h3>
+                    <div className="checkbox">
+                        <input
+                            type="checkbox"
+                            id="pack"
+                            name="pack"
+                            value="pack"
+                            onChange={(e) => {
+                                props.formData.pack = e.target.checked
+                                props.setFormData({ ...props.formData })
+                            }}
+                        />
+                        <label htmlFor="pack">
+                            <HouseIcon />
+                            <h3>Help Me Pack</h3>
                         </label>
                     </div>
-                </RadioContainer> */}
-                <Button center long onClick={props.nextStep}>
-                    continue
-                    </Button>
-                <Paginate
-                    pageCount={props.totalSteps}
-                    containerClassName={"pagination"}
-                    previousClassName={"previous"}
-                    nextClassName={"previous"}
-                    pageLinkClassName={"pages"}
-                    marginPagesDisplayed={1}
-                    activeLinkClassName={"activePage"}
-                    breakLinkClassName={"pages"}
-                />
+                    <div className="checkbox">
+                        <input
+                            type="checkbox"
+                            id="storage"
+                            name="storage"
+                            value="storage"
+                            onChange={(e) => {
+                                props.formData.storage = e.target.checked
+                                props.setFormData({ ...props.formData })
+                            }}
+                        />
+                        <label htmlFor="storage">
+                            <WarehouseIcon />
+                            <h3>Storage Services</h3>
+                        </label>
+                    </div>
+                    <div className="checkbox">
+                        <input
+                            type="checkbox"
+                            id="supplies"
+                            name="supplies"
+                            value="supplies"
+                            onChange={(e) => {
+                                props.formData.supplies = e.target.checked
+                                props.setFormData({ ...props.formData })
+                            }}
+                        />
+                        <label htmlFor="supplies">
+                            <BoxIcon />
+                            <h3>I Need Supplies</h3>
+                        </label>
+                    </div>
+                    <div className="checkbox">
+                        <input
+                            type="checkbox"
+                            id="cleaning"
+                            name="cleaning"
+                            value="cleaning"
+                            onChange={(e) => {
+                                props.formData.cleaning = e.target.checked
+                                props.setFormData({ ...props.formData })
+                            }}
+
+                        />
+                        <label htmlFor="cleaning">
+                            <CleaningIcon />
+                            <h3>I Need Cleaning</h3>
+                        </label>
+                    </div>
+                    <div className="checkbox">
+                        <input
+                            type="checkbox"
+                            id="rearrange"
+                            name="rearrange"
+                            value="rearrange"
+                            onChange={(e) => {
+                                props.formData.rearrange = e.target.checked
+                                props.setFormData({ ...props.formData })
+                            }}
+                        />
+                        <label htmlFor="rearrange">
+                            <MenIcon />
+                            <h3>Rearrange My Space</h3>
+                        </label>
+                    </div>
+                </RadioContainer>
             </FormContainer>
-        </Card>
+        </>
     )
 }
 
