@@ -4,7 +4,7 @@ import IllustrationImage from "assets/img/contact-info.png"
 import EmailIcon from "assets/img/email.png";
 import TelephonIcon from "assets/img/telephone.png";
 
-const StepTwo = (props) => {
+const StepTwo = ({ formData, setFormData }) => {
     return (
         <>
             <Illustration>
@@ -19,11 +19,11 @@ const StepTwo = (props) => {
                         <input
                             type="radio"
                             id="phone"
-                            name="contactType"
-                            value="phone"
+                            name="howcontact"
+                            value="Phone"
                             onChange={(e) => {
-                                props.formData.contactType = e.target.value
-                                props.setFormData({ ...props.formData })
+                                formData.howcontact = e.target.value
+                                setFormData({ ...formData })
                             }}
                         />
                         <label htmlFor="phone">
@@ -35,11 +35,11 @@ const StepTwo = (props) => {
                         <input
                             type="radio"
                             id="email"
-                            name="contactType"
-                            value="email"
+                            name="howcontact"
+                            value="Email"
                             onChange={(e) => {
-                                props.formData.contactType = e.target.value
-                                props.setFormData({ ...props.formData })
+                                formData.howcontact = e.target.value
+                                setFormData({ ...formData })
                             }}
                         />
                         <label htmlFor="email">

@@ -26,7 +26,7 @@ const StepThree = (props) => {
                             name="move"
                             value="move"
                             onChange={(e) => {
-                                props.formData.move = e.target.checked
+                                props.formData.move = e.target.value
                                 props.setFormData({ ...props.formData })
                             }}
                         />
@@ -42,7 +42,7 @@ const StepThree = (props) => {
                             name="pack"
                             value="pack"
                             onChange={(e) => {
-                                props.formData.pack = e.target.checked
+                                props.formData.pack = e.target.value
                                 props.setFormData({ ...props.formData })
                             }}
                         />
@@ -58,7 +58,7 @@ const StepThree = (props) => {
                             name="storage"
                             value="storage"
                             onChange={(e) => {
-                                props.formData.storage = e.target.checked
+                                props.formData.storage = e.target.value
                                 props.setFormData({ ...props.formData })
                             }}
                         />
@@ -74,7 +74,7 @@ const StepThree = (props) => {
                             name="supplies"
                             value="supplies"
                             onChange={(e) => {
-                                props.formData.supplies = e.target.checked
+                                props.formData.supplies = e.target.value
                                 props.setFormData({ ...props.formData })
                             }}
                         />
@@ -90,7 +90,7 @@ const StepThree = (props) => {
                             name="cleaning"
                             value="cleaning"
                             onChange={(e) => {
-                                props.formData.cleaning = e.target.checked
+                                props.formData.cleaning = e.target.value
                                 props.setFormData({ ...props.formData })
                             }}
 
@@ -107,7 +107,7 @@ const StepThree = (props) => {
                             name="rearrange"
                             value="rearrange"
                             onChange={(e) => {
-                                props.formData.rearrange = e.target.checked
+                                props.formData.rearrange = e.target.value
                                 props.setFormData({ ...props.formData })
                             }}
                         />

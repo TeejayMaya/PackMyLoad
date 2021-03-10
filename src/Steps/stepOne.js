@@ -4,7 +4,7 @@ import Form from "styles/FormBlock";
 import Input from "components/Input"
 import { ReactComponent as IllustrationImage } from "assets/img/personal-info.svg"
 
-const StepOne = (props) => {
+const StepOne = ({ formData, setFormData }) => {
     return (
         <>
             <Illustration>
@@ -20,29 +20,33 @@ const StepOne = (props) => {
                         name={"name"}
                         id={"name"}
                         placeholder="John Doe"
+                        value={formData.name || ""}
                         onChange={(e) => {
-                            props.formData.name = e.target.value
-                            props.setFormData({ ...props.formData })
+                            formData.name = e.target.value
+                            setFormData({ ...formData })
                         }}
                     />
                     <Input
                         label={"Email Address"}
-                        name={"email"}
-                        id={"email"}
+                        name={"emailaddress"}
+                        id={"emailaddress"}
+                        type={"email"}
                         placeholder="johndoe@email.com"
+                        value={formData.emailaddress || ""}
                         onChange={(e) => {
-                            props.formData.email = e.target.value
-                            props.setFormData({ ...props.formData })
+                            formData.emailaddress = e.target.value
+                            setFormData({ ...formData })
                         }}
                     />
                     <Input
                         label={"Phone Number"}
-                        name={"phone"}
-                        id={"phone"}
+                        name={"phonenumber"}
+                        id={"phonenumber"}
                         placeholder="08023456789"
+                        value={formData.phonenumber || ""}
                         onChange={(e) => {
-                            props.formData.phone = e.target.value
-                            props.setFormData({ ...props.formData })
+                            formData.phonenumber = e.target.value
+                            setFormData({ ...formData })
                         }}
                     />
                 </Form>

@@ -10,13 +10,24 @@ import StepSix from "Steps/stepSix"
 import StepSeven from "Steps/stepSeven"
 import StepEight from "Steps/stepEight"
 import { Pagination } from 'antd';
-import Button from "styles/ButtonBlock";
-
+import Button from "components/Button";
+import axios from "axios";
 
 function App() {
   const [formData, setFormData] = React.useState({})
   const [current, setCurrent] = React.useState(1);
+  const [loading, setLoading] = React.useState(false)
+
   console.log(formData)
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setLoading(!loading)
+    axios.post("http://localhost:3002/booking", formData).then((res) => {
+      setLoading(false)
+      console.log(res)
+    })
+  }
 
   const steps = [
     {
@@ -53,10 +64,12 @@ function App() {
           {steps[current - 1].content}
           <div className="steps-action">
             <Button center long
-              onClick={() => {
-                if (current < steps.length)
+              onClick={(e) => {
+                if (current < steps.length) {
                   setCurrent(current + 1)
-              }}>
+                }
+                else handleSubmit(e)
+              }} loading={loading}>
               {current !== steps.length ? "continue" : "submit"}
             </Button>
             <Pagination
