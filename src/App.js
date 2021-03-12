@@ -9,7 +9,7 @@ import StepFive from "Steps/stepFive"
 import StepSix from "Steps/stepSix"
 import StepSeven from "Steps/stepSeven"
 import StepEight from "Steps/stepEight"
-import { Pagination } from 'antd';
+import { Pagination, message } from 'antd';
 import Button from "components/Button";
 import axios from "axios";
 
@@ -22,11 +22,36 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setLoading(!loading)
-    axios.post("http://localhost:3002/booking", formData).then((res) => {
-      setLoading(false)
-      console.log(res)
-    })
+    if (Object.keys(formData).length === 0) {
+      setCurrent(1)
+      message.warn('Please fill in the form before submitting');
+    } else if (!formData.emailaddress) {
+      setCurrent(1)
+      message.warn("Email is required");
+    }
+    else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formData.emailaddress)) {
+      setCurrent(1)
+      message.warn("Invalid Email");
+    } else if (!formData.address) {
+      setCurrent(5)
+      message.warn("Moving address is required")
+    } else if (!formData.date) {
+      setCurrent(7)
+      message.warn("Moving date is required")
+    } else {
+      setLoading(!loading)
+      axios.post(process.env.REACT_APP_BASE_URL + "/booking", formData).then((res) => {
+        if (res) {
+          setLoading(false)
+          message.success("Form submitted succefully, You'll get a mail with your input shortly", 5)
+        }
+      }).catch((err) => {
+        if (err) {
+          setLoading(false)
+          message.error("Something went wrong please try again")
+        }
+      })
+    }
   }
 
   const steps = [
