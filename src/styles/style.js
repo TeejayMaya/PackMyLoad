@@ -59,15 +59,15 @@ export const FormContainer = Styled.div`
         line-height: 1.3;
     }
     @media only screen and (max-width: 720px) {
-    width: 100vw;
-    height: 100vh;
-    padding: 78px 28px 41.5px 28px;
-    h4{
-        width: auto !important;
-    }
-    h1{
-        width: auto !important;
-    }
+        width: 100vw;
+        height: 100vh;
+        padding: 40px 28px 0 28px;
+        h4{
+            width: auto !important;
+        }
+        h1{
+            width: auto !important;
+        }
     }
 `;
 
@@ -77,6 +77,11 @@ export const RadioContainer = Styled.div`
     flex-wrap: ${(props) => props.wrap ? "wrap" : "nowrap"};
     & > *{
         margin: 10px 14px;
+    }
+    @media only screen and (max-width: 720px) {
+        & > *{
+            margin: 7px 4px;
+        }
     }
     input[type=checkbox]:not(old):checked + label:before, 
     input[type=radio]:not(old):checked + label:before, 

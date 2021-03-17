@@ -18,8 +18,6 @@ function App() {
   const [current, setCurrent] = React.useState(1);
   const [loading, setLoading] = React.useState(false)
 
-  console.log(formData)
-
   const handleSubmit = (e) => {
     e.preventDefault()
     if (Object.keys(formData).length === 0) {
@@ -101,6 +99,7 @@ function App() {
               current={current}
               pageSize={1}
               total={8}
+              // size="small"
               onChange={(current) => {
                 setCurrent(current)
               }} />
