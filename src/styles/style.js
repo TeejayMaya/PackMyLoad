@@ -60,7 +60,7 @@ export const FormContainer = Styled.div`
     }
     @media only screen and (max-width: 720px) {
         width: 100vw;
-        height: 100vh;
+        height: auto;
         padding: 40px 28px 0 28px;
         h4{
             width: auto !important;

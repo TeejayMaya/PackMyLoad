@@ -196,7 +196,7 @@ const CardBlock = styled.div`
     ${(props) =>
     props.heightMobile &&
     css`
-        height: ${props.heightMobile}px;
+        height: ${props.heightMobile};
       `}
     ${(props) =>
     props.minHeightMobile &&

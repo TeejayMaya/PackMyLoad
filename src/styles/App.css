@@ -61,9 +61,7 @@
     margin-right: 2px !important;
   }
   .steps-action{
-    position: absolute;
-    bottom: 6%;
-    right: auto;
+    position: unset;
     width: 100%;
     display: flex;
     flex-direction: column;
