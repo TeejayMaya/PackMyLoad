@@ -67,6 +67,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 30px;
   }
   .ant-pagination-item-active {
     border: 2px solid #2E5F9E !important;

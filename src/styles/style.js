@@ -78,11 +78,6 @@ export const RadioContainer = Styled.div`
     & > *{
         margin: 10px 14px;
     }
-    @media only screen and (max-width: 720px) {
-        & > *{
-            margin: 7px 4px;
-        }
-    }
     input[type=checkbox]:not(old):checked + label:before, 
     input[type=radio]:not(old):checked + label:before, 
     input[type=checkbox]:not(old):checked + span + label:before, 
@@ -95,6 +90,22 @@ export const RadioContainer = Styled.div`
         font-size: 1.5rem;
         color: #acd373;
     }
+    @media only screen and (max-width: 720px) {
+        & > *{
+            margin: 7px 12px;
+        }
+    input[type=checkbox]:not(old):checked + label:before, 
+    input[type=radio]:not(old):checked + label:before, 
+    input[type=checkbox]:not(old):checked + span + label:before, 
+    input[type=radio]:not(old):checked + span + label:before {
+        content: url(${Check});
+        position: absolute;
+        right: 10px;
+        top: 4px;
+        font-size: 1.5rem;
+        color: #acd373;
+    }
+    }
     .checkbox {
         display: flex;
         input[type="checkbox" i]{
@@ -105,7 +116,6 @@ export const RadioContainer = Styled.div`
             width: 203px;
             height: 73px;
             background: rgba(77, 183, 254, 0.1) 0% 0% no-repeat padding-box;
-            /* box-shadow: 0px 3px 6px #272D3B33; */
             border-radius: 20px;
             display: flex;
             flex-direction: row;
@@ -125,11 +135,11 @@ export const RadioContainer = Styled.div`
             }
             @media only screen and (max-width: 720px) {
                 h3{
-                    font-size: 10px;
+                    font-size: 12px;
                 }
-                width: 125px;
-                height: 63px;
-                padding: 0 16px 0 16px;
+                width: 239px;
+                height: 73px;
+                padding: 0 20px;
             }
         }
     }
@@ -158,5 +168,17 @@ export const RadioContainer = Styled.div`
                 margin-top: 12px;
             }
         }
+    @media only screen and (max-width: 720px){
+        label{
+            width: 150px;
+            height: 150px;
+            h3{
+                font-size: 23px;
+            }
+            img{
+                height: 60px;
+            }
+        }
+    }
     }
 `;
