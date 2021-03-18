@@ -9,7 +9,7 @@ import StepFive from "Steps/stepFive"
 import StepSix from "Steps/stepSix"
 import StepSeven from "Steps/stepSeven"
 import StepEight from "Steps/stepEight"
-import { Pagination, message } from 'antd';
+import { Pagination, message, Modal } from 'antd';
 import Button from "components/Button";
 import axios from "axios";
 
@@ -17,6 +17,24 @@ function App() {
   const [formData, setFormData] = React.useState({})
   const [current, setCurrent] = React.useState(1);
   const [loading, setLoading] = React.useState(false)
+
+  function success() {
+    const modal = Modal.success({
+      content: "Form submitted succefully, You'll get a mail with your input shortly",
+      width: 350,
+      centered: true,
+      maskClosable: true,
+      okText: "Go Home",
+      onOk: () => {
+        window.location.href = "https://www.packmyload.com/"
+      }
+    });
+
+    setTimeout(() => {
+      modal.destroy();
+      window.location.href = "https://www.packmyload.com/"
+    }, 3 * 1000);
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -41,7 +59,7 @@ function App() {
       axios.post(process.env.REACT_APP_BASE_URL + "/booking", formData).then((res) => {
         if (res) {
           setLoading(false)
-          message.success("Form submitted succefully, You'll get a mail with your input shortly", 5)
+          success()
         }
       }).catch((err) => {
         if (err) {

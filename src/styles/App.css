@@ -53,6 +53,10 @@
   right: 6%;
 }
 
+::placeholder{
+    color: #8c98a97d !important;
+    font-weight: 500 !important;
+}
 
 @media only screen and (max-width: 720px){
   .ant-pagination-item{
